@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roca</title>
+</head>
+<body>
+<script type="text/x-template" id="menu-item-template">
+    <li>
+        <div :class="{bold: isFolder}" @click="onClick">
+            {{model.name}}
+            <span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
+        </div>
+        <ul v-show="open" v-if="isFolder">
+            <menu-item class="menu-item" v-for="model in model.children" :model="model"></menu-item>
+        </ul>
+    </li>
+</script>
+
+<script type="text/x-template" id="md-page-template">
+    <div>
+        <h1>{{model.name}}</h1>
+        {{model.html}}
+    </div>
+</script>
+
+<div id="app">
+    <ul>
+        <menu-item class="menu-item" :model="treeData"></menu-item>
+    </ul>
+    <md-page :model="pageData"></md-page>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
+<script src="dist/roca.js"></script>
+</body>
+</html>
