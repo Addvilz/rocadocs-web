@@ -20,7 +20,8 @@ html {
 }
 
 body {
-    margin: 0
+    margin: 0;
+
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -194,40 +195,6 @@ td, th {
     padding: 0
 }
 
-:root {
-    font-size: 10px
-}
-
-@media (min-width: 1680px) {
-    :root {
-        font-size: 10px
-    }
-}
-
-@media (min-width: 1280px) and (max-width: 1679px) {
-    :root {
-        font-size: 10px
-    }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-    :root {
-        font-size: 10px
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    :root {
-        font-size: 9px
-    }
-}
-
-@media (max-width: 767px) {
-    :root {
-        font-size: 9px
-    }
-}
-
 html * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
@@ -374,34 +341,33 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 }
 
 h1 {
-    font-size: 3.2rem
+    font-size: 2.2rem
 }
 
 h2 {
-    font-size: 2.4rem
-}
-
-h3 {
-    font-size: 2rem
-}
-
-h4 {
     font-size: 1.8rem
 }
 
-h5 {
+h3 {
     font-size: 1.6rem
 }
 
-h6 {
+h4 {
     font-size: 1.4rem
+}
+
+h5 {
+    font-size: 1.2rem
+}
+
+h6 {
+    font-size: 1.1rem
 }
 
 p {
     margin: 2rem 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
     color: #555;
     line-height: 1.5
 }
@@ -410,7 +376,6 @@ p {
     margin: 0 0 2rem 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
-    font-size: 1.8rem;
     color: #555;
     line-height: 1.5
 }
@@ -437,7 +402,6 @@ blockquote {
     padding: 0 2rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
-    font-size: 1.8rem;
     font-style: normal;
     line-height: 1.5;
     color: #555
@@ -447,7 +411,7 @@ blockquote p {
     margin: 0;
     font-family: inherit;
     font-weight: inherit;
-    font-size: inherit;
+
     font-style: inherit;
     line-height: inherit;
     color: inherit
@@ -457,7 +421,7 @@ blockquote cite {
     display: block;
     margin: 1rem 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.6rem;
+
     font-style: normal;
     color: #555;
     text-align: left
@@ -468,7 +432,7 @@ blockquote cite {
     padding: 0 2rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
-    font-size: 1.8rem;
+
     color: #555;
     border: solid #3455DB;
     border-width: 0 0 0 .4rem
@@ -484,7 +448,7 @@ ol li, ul li {
     padding: 0 0 0 .5rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
+
     color: #555;
     line-height: 1.5
 }
@@ -527,7 +491,7 @@ dt {
     margin: 1rem 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
-    font-size: 1.6rem;
+
     color: #555
 }
 
@@ -535,14 +499,14 @@ dd {
     margin: 0 0 2rem 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
+
     color: #555
 }
 
 code {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
     font-weight: 400;
-    font-size: 1em;
+
     color: #8B008B
 }
 
@@ -576,7 +540,7 @@ kbd {
     padding: .4rem;
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
     font-weight: 400;
-    font-size: 1.2rem;
+
     color: #8B008B;
     background: #FAFAFC;
     border: 1px solid #DDD
@@ -587,7 +551,6 @@ mark {
     padding: .3rem .6rem;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
     color: #555;
     background: #ff0;
     border: none;

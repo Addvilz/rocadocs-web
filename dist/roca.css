@@ -3,6 +3,14 @@
     color: #FFF;
 }
 
+a{
+    color: #1976D2;
+}
+
+.menu-item>div:hover{
+    color: #2196F3;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -12,8 +20,13 @@ ul {
     line-height: 1.5em;
 }
 
+#content {
+    margin-bottom: 2em;
+}
+
 #sidebar ul {
     list-style: none;
+    margin: 0 0 0 10px;
 }
 
 #sidebar > ul {
@@ -25,8 +38,25 @@ ul {
     padding: 0;
 }
 
+#sidebar > ul > li > ul {
+    margin-left: 15px;
+}
+
 #sidebar li {
-    margin: 1rem 0 1rem 0.7rem;
+    margin: 0;
+}
+
+table {
+    margin-bottom: 1em;
+}
+
+table, table td, table tr, table th {
+    border-collapse: collapse;
+    border: 1px solid #CCC;
+}
+
+table td {
+    padding: 10px;
 }
 
 h1.page-title {
@@ -68,7 +98,6 @@ span.folder.open {
 }
 
 .roca_css {
-    font-size: 1.5em;
 }
 
 .roca_css .hll {
