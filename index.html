@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Roca</title>
+    <link rel="stylesheet" href="dist/ui.css">
+    <link rel="stylesheet" href="dist/roca.css">
 </head>
 <body>
 <script type="text/x-template" id="menu-item-template">
     <li>
-        <div :class="{bold: isFolder}" @click="onClick">
+        <div :class="{bold: isFolder}" @click="onClick" @dblclick="onDoubleClick">
+            <span v-if="isFolder" class="folder" :class="{open: open}"></span>
             {{model.name}}
-            <span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
         </div>
         <ul v-show="open" v-if="isFolder">
             <menu-item class="menu-item" v-for="model in model.children" :model="model"></menu-item>
@@ -19,20 +21,24 @@
 
 <script type="text/x-template" id="md-page-template">
     <div>
-        <h1>{{model.name}}</h1>
-        {{model.html}}
+        <h1 class="page-title">{{model.name}}</h1>
+        <div v-html="model.html"></div>
     </div>
 </script>
 
-<div id="app">
-    <ul>
-        <menu-item class="menu-item" :model="treeData"></menu-item>
-    </ul>
-    <md-page :model="pageData"></md-page>
-</div>
+<section id="app">
+    <div id="sidebar">
+        <ul>
+            <menu-item class="menu-item" :model="treeData"></menu-item>
+        </ul>
+    </div>
+    <div id="content">
+        <md-page :model="pageData"></md-page>
+    </div>
+</section>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
+<script src="dist/vue.min.js"></script>
 <script src="dist/roca.js"></script>
 </body>
 </html>
