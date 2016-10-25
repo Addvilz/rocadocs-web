@@ -11,8 +11,9 @@
 <body>
 <script type="text/x-template" id="menu-item-template">
     <li>
-        <div :class="{bold: isFolder}" @click="onClick" @dblclick="onDoubleClick">
-            <span v-if="isFolder" class="folder" :class="{open: open}"></span>
+        <div @click="onClick" @dblclick="onDoubleClick">
+            <span v-if="isFolder" class="icon folder" :class="{open: open}"></span>
+            <span v-else class="icon file"></span>
             {{model.name}}
         </div>
         <ul v-show="open" v-if="isFolder">

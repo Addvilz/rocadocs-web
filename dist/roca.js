@@ -39,11 +39,12 @@ Vue.component('menu-item', {
     computed: {
         isFolder: function () {
             return this.model.children &&
-                this.model.children.length
+                this.model.children.length;
         }
     },
     methods: {
         onClick: function () {
+            this.open = false;
             eventBus.$emit('change-page', this.model)
         },
         onDoubleClick: function () {

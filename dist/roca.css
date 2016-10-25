@@ -11,10 +11,6 @@ a{
     color: #2196F3;
 }
 
-.bold {
-    font-weight: bold;
-}
-
 ul {
     padding-left: 1em;
     line-height: 1.5em;
@@ -64,15 +60,22 @@ h1.page-title {
     border-bottom: 1px solid #CCC;
 }
 
-span.folder {
-    background: url('img/f.png') no-repeat 0 3px;
+span.icon {
     display: inline-block;
     width: 18px;
     height: 18px;
 }
 
+span.file {
+    background: url('img/fi.png') no-repeat 0 3px;
+}
+
+span.folder {
+    background: url('img/f.png') no-repeat 0 3px;
+}
+
 span.folder.open {
-    background: url('img/fo.png') no-repeat;
+    background: url('img/fo.png') no-repeat 0 3px;
 }
 
 #sidebar {
