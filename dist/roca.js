@@ -1,38 +1,60 @@
 var eventBus = new Vue();
 
+var urlParams = {
+    article: null
+};
+
+window.onpopstate = function () {
+    var match,
+        pl = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) {
+            return decodeURIComponent(s.replace(pl, " "));
+        },
+        query = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query)) {
+        urlParams[decode(match[1])] = decode(match[2]);
+    }
+};
+
+window.onpopstate();
+
+var checkRecursiveOpen = function (targetId, model) {
+    if (model.children &&
+        model.children.length) {
+        var i;
+        for (i = 0; i < model.children.length; i++) {
+            var child = model.children[i];
+            if (child.id === targetId || child.open) {
+                return true;
+            }
+            if (checkRecursiveOpen(targetId, child)) {
+                return true;
+            }
+        }
+    }
+};
+
 Vue.component('menu-item', {
     template: '#menu-item-template',
     props: {
         model: Object
     },
     data: function () {
-        var hash = document.location.hash.substr(1);
+        var self = this;
 
-        var checkRecursiveOpen = function (model) {
-            if (model.children &&
-                model.children.length) {
-                var i;
-                for (i = 0; i < model.children.length; i++) {
-                    var child = model.children[i];
-                    if (child.id === hash || child.open) {
-                        return true;
-                    }
-                    if (checkRecursiveOpen(child)) {
-                        return true;
-                    }
-                }
-            }
-        };
+        var currentId = urlParams.article;
+        var childOpen = checkRecursiveOpen(currentId, this.model);
 
-        var childOpen = checkRecursiveOpen(this.model);
-
-        if (hash === this.model.id) {
-            eventBus.$emit('change-page', this.model);
+        if (currentId === this.model.id) {
+            eventBus.$emit('load-page', this.model);
         }
 
         return {
             open: true === this.model.open ||
-            hash === this.model.id ||
+            currentId === this.model.id ||
             true === childOpen
         }
     },
@@ -44,8 +66,8 @@ Vue.component('menu-item', {
     },
     methods: {
         onClick: function () {
-            this.open = false;
-            eventBus.$emit('change-page', this.model)
+            eventBus.$emit('change-page', this.model);
+            eventBus.$emit('load-page', this.model);
         },
         onDoubleClick: function () {
             if (this.isFolder) {
@@ -65,7 +87,7 @@ Vue.component('md-page', {
     }
 });
 
-var demo = new Vue({
+var app = new Vue({
     el: '#app',
     data: {
         title: 'Roca',
@@ -110,44 +132,61 @@ var demo = new Vue({
         }
     },
     mounted: function () {
-        this.changeTitle(this.pageData.name);
-    },
-    created: function () {
         var self = this;
 
-        eventBus.$on('change-page', this.changePage);
+        this.changeTitle(this.pageData.name);
 
-        var recursiveGetModel = function (model, hash) {
-            if (model.children &&
-                model.children.length) {
+        var findRecursive = function (id, model) {
+            if (model.id && model.id === id) {
+                return model;
+            }
+
+            if (model.children && model.children.length) {
                 var i;
                 for (i = 0; i < model.children.length; i++) {
                     var child = model.children[i];
-                    if (child.id === hash) {
-                        return child
+                    if (id === child.id) {
+                        return child;
                     }
-                    var submodel = recursiveGetModel(child, hash);
-
-                    if (submodel) {
-                        return submodel;
+                    var childMatch = findRecursive(id, child);
+                    if (childMatch) {
+                        return childMatch;
                     }
                 }
             }
         };
 
-        window.onhashchange = function () {
-            var model = recursiveGetModel(self.treeData, document.location.hash.substr(1));
-            model.open = true;
-            self.changePage(model);
-        }
+        window.article = function (target) {
+            var page = findRecursive(target, self.treeData);
+
+            if (page) {
+                eventBus.$emit('change-page', page);
+                eventBus.$emit('load-page', page);
+            }
+        };
+    },
+    created: function () {
+        eventBus.$on('change-page', this.changePage);
+        eventBus.$on('load-page', this.loadPage);
     },
     methods: {
-        changePage: function (page) {
+        loadPage: function (page) {
             this.pageData.name = page.name;
             this.pageData.html = page.html;
+
             window.scrollTo(0, 0);
+        },
+        changePage: function (page) {
             if (page.id) {
-                document.location.hash = page.id;
+                var url = '/?article=' + page.id;
+
+                history.pushState(
+                    {
+                        id: page.id
+                    },
+                    page.name,
+                    url
+                );
             }
         },
         changeTitle: function (pageName) {
