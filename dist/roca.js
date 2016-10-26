@@ -176,10 +176,10 @@ var app = new Vue({
         loadPage: function (page) {
             this.pageData.name = page.name;
             this.pageData.html = page.html;
-
-            window.scrollTo(0, 0);
         },
         changePage: function (page) {
+            window.scrollTo(0, 0);
+
             if (page.id) {
                 var url = '/?article=' + page.id;
 
