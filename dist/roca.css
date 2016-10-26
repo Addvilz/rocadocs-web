@@ -131,6 +131,12 @@ a {
     text-decoration: none;
 }
 
+a.headerlink {
+    color: #CECECE;
+    display: inline-block;
+    margin-left: 10px;
+}
+
 a:hover, a:active {
     text-decoration: underline;
     outline-width: 0;
