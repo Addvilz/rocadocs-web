@@ -138,11 +138,10 @@ a:hover, a:active {
 
 blockquote {
     display: block;
-    background-color: rgba(0, 0, 0, 0.04);
-    padding: 15px 20px 15px 45px;
+    background: #FFF;
+    padding: 10px 10px 10px 10px;
     margin-left: 0;
     margin-right: 0;
-    position: relative;
     font-family: serif;
     font-size: 16px;
     line-height: 1.2;
@@ -150,17 +149,14 @@ blockquote {
     text-align: justify;
 }
 
-blockquote::before {
-    content: "\201C";
-    font-family: serif;
-    font-size: 60px;
-    font-weight: bold;
-    color: #999;
-    position: absolute;
-    left: 10px;
-    top: 5px;
+/** Tables **/
+
+table {
+    border-collapse: collapse;
+    background: #FFF;
 }
 
-blockquote::after {
-    content: "";
+table td, table th {
+    padding: 10px;
+    border: 1px solid #DDD;
 }
