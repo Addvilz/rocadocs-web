@@ -1,8 +1,6 @@
 var eventBus = new Vue();
 
-var urlParams = {
-    article: null
-};
+var urlParams;
 
 window.onpopstate = function () {
     var match,
@@ -13,7 +11,10 @@ window.onpopstate = function () {
         },
         query = window.location.search.substring(1);
 
-    urlParams = {};
+    urlParams = {
+        article: null
+    };
+
     while (match = search.exec(query)) {
         urlParams[decode(match[1])] = decode(match[2]);
     }
@@ -43,10 +44,12 @@ Vue.component('menu-item', {
         model: Object
     },
     data: function () {
-        var self = this;
-
         var currentId = urlParams.article;
-        var childOpen = checkRecursiveOpen(currentId, this.model);
+        var childOpen = false;
+
+        if (currentId) {
+            childOpen = checkRecursiveOpen(currentId, this.model);
+        }
 
         if (currentId === this.model.id) {
             eventBus.$emit('load-page', this.model);
