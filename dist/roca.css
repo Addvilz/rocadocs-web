@@ -155,6 +155,53 @@ blockquote {
     text-align: justify;
 }
 
+div.admonition {
+    padding: 10px;
+    background: #FFF;
+    border: 1px solid #DDD;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+div.admonition p {
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+div.admonition p:last-child {
+    margin-bottom: 0;
+}
+
+div.admonition p.admonition-title {
+    font-weight: bold;
+    padding-bottom: 7px;
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+/** attention, caution, danger, error, hint, important, note, tip, warning **/
+
+div.admonition.danger,
+div.admonition.error,
+div.admonition.caution,
+div.admonition.attention {
+    background: #FFCDD2;
+    border: 1px solid #C62828;
+}
+
+div.admonition.warning {
+    background: #FFE0B2;
+    border: 1px solid #FF9800;
+}
+
+div.admonition.note,
+div.admonition.tip,
+div.admonition.hint,
+div.admonition.important {
+    background: #BBDEFB;
+    border: 1px solid #2196F3;
+}
+
 /** Tables **/
 
 table {
@@ -166,3 +213,4 @@ table td, table th {
     padding: 10px;
     border: 1px solid #DDD;
 }
+
