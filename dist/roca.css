@@ -161,6 +161,7 @@ div.admonition {
     border: 1px solid #DDD;
     overflow-y: auto;
     overflow-x: auto;
+    margin-bottom: 16px;
 }
 
 div.admonition p {
@@ -174,7 +175,6 @@ div.admonition p:last-child {
 
 div.admonition p.admonition-title {
     font-weight: bold;
-    padding-bottom: 7px;
     margin-top: 0;
     margin-bottom: 7px;
 }
