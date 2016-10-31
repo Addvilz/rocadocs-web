@@ -106,7 +106,7 @@ var app = new Vue({
         var self = this;
 
         var request = new XMLHttpRequest();
-        request.open('GET', 'data.json', true);
+        request.open('GET', 'data.json?hostname=' + document.location.hostname, true);
 
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
