@@ -27,6 +27,15 @@ div#sidebar {
     -ms-user-select: none; /* IE10+ */
 }
 
+#search {
+
+    input[type="search"] {
+        width: 100%;
+        padding: 5px;
+    }
+
+}
+
 #content {
     margin-left: 400px;
     padding: 20px;
@@ -43,7 +52,7 @@ div#sidebar {
 }
 
 #sidebar li.menu-item > div:hover {
-    color: #4078c0;
+    color: #0D47A1;
 }
 
 /* Outer nav */
@@ -69,15 +78,15 @@ span.icon {
 }
 
 span.file {
-    background: url('img/fi.png') no-repeat 0 3px;
+    background: url('assets/img/fi.png') no-repeat 0 3px;
 }
 
 span.folder {
-    background: url('img/f.png') no-repeat 0 3px;
+    background: url('assets/img/f.png') no-repeat 0 3px;
 }
 
 span.folder.open {
-    background: url('img/fo.png') no-repeat 0 3px;
+    background: url('assets/img/fo.png') no-repeat 0 3px;
 }
 
 /** Page **/
@@ -127,7 +136,7 @@ hr {
 }
 
 a {
-    color: #4078c0;
+    color: #0D47A1;
     text-decoration: none;
 }
 
@@ -213,4 +222,3 @@ table td, table th {
     padding: 10px;
     border: 1px solid #DDD;
 }
-
