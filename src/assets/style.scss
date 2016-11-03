@@ -45,13 +45,15 @@ div#sidebar {
 
 /** Sidebar **/
 
-#sidebar li.menu-item {
+#sidebar li.menu-item, ul.autoindex {
     cursor: pointer;
     color: #212121;
     line-height: 1.42em;
 }
 
-#sidebar li.menu-item > div:hover {
+#sidebar li.menu-item > div:hover,
+ul.autoindex li.menu-item > div:hover
+{
     color: #0D47A1;
 }
 
@@ -61,13 +63,18 @@ div#sidebar {
     margin: 7px 0 0 7px;
 }
 
-#sidebar > ul ul {
+#sidebar > ul ul, ul.autoindex ul{
     padding: 0;
     margin: 0 0 0 15px
 }
 
-#sidebar ul {
+#sidebar ul, ul.autoindex{
     list-style-type: none;
+}
+
+ul.autoindex{
+    margin: 0;
+    padding: 0;
 }
 
 /** Sidebar icons **/
@@ -90,6 +97,24 @@ span.folder.open {
 }
 
 /** Page **/
+
+.result-page {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #FFF;
+    border: 1px solid #EEE;
+}
+
+.result-page h1.page-title {
+    color: #0D47A1;
+    cursor: pointer;
+}
+
+.result-page h1.page-title:hover {
+    text-decoration: underline;
+    outline-width: 0;
+}
 
 h1.page-title {
     padding-bottom: 20px;

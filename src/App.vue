@@ -11,6 +11,9 @@
                 <div v-if="!state.search.results.length">
                     Nothing found
                 </div>
+                <div v-else>
+                    Found {{state.search.results.length}} results:
+                </div>
                 <result-page v-for="search_page in state.search.results" :page="search_page"></result-page>
             </div>
         </div>

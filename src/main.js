@@ -163,7 +163,7 @@ window.app = new Vue({
     },
     beforeCreate: function () {
         const createIndex = (tree, root) => {
-            for (let id in tree) {
+            for (const id in tree) {
                 if (!tree.hasOwnProperty(id)) {
                     continue;
                 }
@@ -171,7 +171,7 @@ window.app = new Vue({
                 if (page.children && page.children.length) {
                     createIndex(page.children, root);
                 }
-                if (!page.id) {
+                if (!page.id || page.autoindex) {
                     continue;
                 }
                 root[page.id] = page;
