@@ -7,6 +7,13 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+.loader {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 /** Layout **/
 div#sidebar {
     top: 0;
