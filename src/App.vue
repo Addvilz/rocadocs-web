@@ -58,5 +58,6 @@
 <style lang="scss">
     @import './assets/style.scss';
     @import './assets/code.scss';
+    @import './assets/print.scss';
     @import '../node_modules/spinkit/scss/spinners/11-folding-cube.scss';
 </style>
