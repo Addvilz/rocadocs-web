@@ -171,10 +171,17 @@ window.app = new Vue({
                 if (page.children && page.children.length) {
                     createIndex(page.children, root);
                 }
-                if (!page.id || page.autoindex) {
+
+                if (!page.id) {
                     continue;
                 }
+
                 root[page.id] = page;
+
+                if (page.autoindex) {
+                    continue;
+                }
+
                 objectStore.searchIndex.add({
                     name: page.name,
                     html: page.html,
