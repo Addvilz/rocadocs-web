@@ -1,6 +1,8 @@
-# Rocadocs web UI
+# Rocadocs web
 
-See [Rocadocs generator page](https://github.com/rocadocs/web) for more information.
+Rocadocs web is reusable web UI designed to serve content stored in structured JSON file. This JSON file can be generated using rocadocs generator or any other compatible documentation generator - even your own.
+
+See [Rocadocs generator page](https://github.com/rocadocs/rocadocs) for more information.
 
 
 ## Build Setup
