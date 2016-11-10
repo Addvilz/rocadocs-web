@@ -1,6 +1,9 @@
 <template>
     <div id="top-bar">
-        <h1>{{meta.title}}</h1>
+        <h1>
+            {{meta.title}}
+            <span>{{ currentPage.name }}</span>
+        </h1>
         <button @click="onClick" id="toggle-nav"></button>
     </div>
 </template>
@@ -10,7 +13,8 @@
         name: 'topbar',
         props: {
             state: Object,
-            meta: Object
+            meta: Object,
+            currentPage: Object
         },
         data () {
             return {}

@@ -1,6 +1,6 @@
 <template>
     <div v-if="state.loaded" id="app">
-        <topbar :state="state" :meta="meta"></topbar>
+        <topbar :state="state" :meta="meta" :currentPage="currentPage"></topbar>
         <div id="sidebar-outer">
             <sidebar id="sidebar" :tree="data.tree" :page="currentPage" :state="state" :class="{open: state.menuVisible}"></sidebar>
         </div>
@@ -68,3 +68,4 @@
     @import './assets/mobile.scss';
     @import '../node_modules/spinkit/scss/spinners/11-folding-cube.scss';
 </style>
+

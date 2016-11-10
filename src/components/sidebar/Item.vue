@@ -1,6 +1,6 @@
 <template>
     <li>
-        <div @click="onClick" @dblclick="onDoubleClick">
+        <div @click="onClick">
             <span v-if="isFolder" class="icon folder" :class="{open: open}"></span>
             <span v-else class="icon file"></span>
             {{model.name}}
@@ -44,8 +44,6 @@
         methods: {
             onClick: function () {
                 eventBus.emit('page-display', this.model);
-            },
-            onDoubleClick: function () {
                 if (this.isFolder) {
                     this.open = !this.open
                 }

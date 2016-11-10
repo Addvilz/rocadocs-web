@@ -17,7 +17,7 @@
         display: block;
         height: 40px;
         line-height: 40px;
-        background: #CCC;
+        background: #EEEEEE;
         top: 0;
         left: 0;
         position: fixed;
@@ -29,15 +29,20 @@
             border: 0;
             color: #434343;
             font-size: 16px;
-            margin: 12px 0 0 15px;
+            margin: 3px 0 0 15px;
 
+            span {
+                display: block;
+                font-size: 12px;
+                font-weight: normal;
+            }
         }
     }
 
     div#sidebar {
         display: none;
         top: 40px;
-        width: 70%;
+        width: 95%;
     }
 
     div#sidebar.open {

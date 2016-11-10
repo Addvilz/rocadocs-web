@@ -1,9 +1,21 @@
 'use strict';
 
+import Hammer from '../node_modules/hammerjs/hammer'
+
 import Vue from 'vue'
 import App from './App'
 import EventEmitter from 'events';
 import lunr from 'lunr';
+
+var hammerGlobalEvents = new Hammer(document.getElementsByTagName('html')[0], {});
+
+hammerGlobalEvents.on('swipeleft', (ev) => {
+    objectStore.state.menuVisible = false;
+});
+
+hammerGlobalEvents.on('swiperight', (ev) => {
+    objectStore.state.menuVisible = true;
+});
 
 window.eventBus = new EventEmitter();
 
@@ -31,7 +43,6 @@ window.article = function (id) {
 };
 
 eventBus.on('page-display', (page) => {
-    objectStore.state.menuVisible = false;
     objectStore.currentPage.name = page.name;
     objectStore.currentPage.html = page.html;
     objectStore.currentPage.id = page.id;
