@@ -1,6 +1,6 @@
 <template>
     <div id="search">
-        <input type="search" v-model="state.query.q" placeholder="Search...">
+        <input type="search" v-model="state.query.q">
     </div>
 </template>
 

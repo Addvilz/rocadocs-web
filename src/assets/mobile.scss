@@ -1,0 +1,51 @@
+#top-bar {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    #toggle-nav {
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background: url('assets/img/menu.png') no-repeat 0 0;
+        outline: none;
+        margin: 8px;
+        float: right;
+    }
+
+    #top-bar {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        background: #CCC;
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+
+        h1 {
+            display: inline-block;
+            padding: 0;
+            border: 0;
+            color: #434343;
+            font-size: 16px;
+            margin: 12px 0 0 15px;
+
+        }
+    }
+
+    div#sidebar {
+        display: none;
+        top: 40px;
+        width: 70%;
+    }
+
+    div#sidebar.open {
+        display: block;
+    }
+
+    #content {
+        margin-top: 40px;
+        margin-left: 0;
+    }
+}

@@ -31,6 +31,7 @@ window.article = function (id) {
 };
 
 eventBus.on('page-display', (page) => {
+    objectStore.state.menuVisible = false;
     objectStore.currentPage.name = page.name;
     objectStore.currentPage.html = page.html;
     objectStore.currentPage.id = page.id;
@@ -94,10 +95,11 @@ window.objectStore = {
         this.field('html')
     }),
     meta: {
-        title: 'Roca'
+        title: 'Roca',
     },
     state: {
         loaded: false,
+        menuVisible: false,
         params: {},
         query: {
             q: null

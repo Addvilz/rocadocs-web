@@ -1,6 +1,6 @@
 body {
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     background: #FAFAFA;
     color: #333;
     -webkit-font-smoothing: antialiased;
@@ -35,12 +35,13 @@ div#sidebar {
 }
 
 #search {
-
     input[type="search"] {
         width: 100%;
-        padding: 5px;
+        height: 28px;
+        padding: 5px 5px 5px 28px;
+        background: url('assets/img/search.png') no-repeat 6px 4px;
+        border: 1px solid #EEE;
     }
-
 }
 
 #content {

@@ -1,7 +1,8 @@
 <template>
     <div v-if="state.loaded" id="app">
+        <topbar :state="state" :meta="meta"></topbar>
         <div id="sidebar-outer">
-            <sidebar id="sidebar" :tree="data.tree" :page="currentPage" :state="state"></sidebar>
+            <sidebar id="sidebar" :tree="data.tree" :page="currentPage" :state="state" :class="{open: state.menuVisible}"></sidebar>
         </div>
         <div id="content">
             <div v-if="!state.query.q" id="page-outer">
@@ -39,19 +40,22 @@
     import Page from './components/Page.vue'
     import ResultPage from './components/ResultPage.vue'
     import Sidebar from './components/Sidebar.vue'
+    import Topbar from './components/Topbar.vue'
 
     export default {
         name: 'app',
         components: {
             Page,
             ResultPage,
-            Sidebar
+            Sidebar,
+            Topbar
         },
         data () {
             return {
                 state: objectStore.state,
                 currentPage: objectStore.currentPage,
-                data: objectStore.data
+                data: objectStore.data,
+                meta: objectStore.meta
             }
         }
     }
@@ -61,5 +65,6 @@
     @import './assets/style.scss';
     @import './assets/code.scss';
     @import './assets/print.scss';
+    @import './assets/mobile.scss';
     @import '../node_modules/spinkit/scss/spinners/11-folding-cube.scss';
 </style>
